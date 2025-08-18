@@ -27,7 +27,6 @@ superset:
     enabled: true
 
   configOverrides:
-    SUPERSET_ENV: production
     superset_config.py: |
       ROW_LIMIT = 5000
       FEATURE_FLAGS = {
