@@ -33,6 +33,11 @@ superset:
           "ALERT_REPORTS": True,
           "DASHBOARD_NATIVE_FILTERS": True,
       }
+  
+  bootstrapScript: |
+    #!/bin/bash
+    uv pip install .[athena] && \
+    if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
       
 
   init:
