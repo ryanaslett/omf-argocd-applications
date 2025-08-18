@@ -7,5 +7,5 @@ appVersion: "0.10.0"
 
 dependencies:
   - name: superset
-    version: 0.10.0
-    repository: https://charts.bitnami.com/bitnami
+    version: 0.15.0
+    repository: https://apache.github.io/superset
