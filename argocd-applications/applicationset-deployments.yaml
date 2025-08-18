@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/ryanaslett/omf-argocd-applications.git
         revision: main
         directories:
-          - path: deployments/*
+          - path: argocd-applications/deployments/*
   template:
     metadata:
       name: '{{path.basename}}'
