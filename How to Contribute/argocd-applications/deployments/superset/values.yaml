@@ -1,0 +1,21 @@
+# deployments/superset/values.yaml
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hosts:
+    - host: superset.example.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - superset.example.com
+      secretName: superset-tls
+
+configOverrides:
+  SUPERSET_ENV: production
