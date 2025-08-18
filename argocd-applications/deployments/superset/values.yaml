@@ -1,0 +1,47 @@
+# deployments/superset/values.yaml
+superset:
+  service:
+    type: ClusterIP
+    port: 80
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/hostname: superset.applications.overturemaps.org
+    hosts:
+      - superset.applications.overturemaps.org
+    tls:
+      - hosts:
+          - superset.applications.overturemaps.org
+        secretName: superset-tls
+  postgresql:
+    enabled: true
+    auth:
+      username: superset
+      password: superset
+      database: superset
+
+  redis:
+    enabled: true
+
+  configOverrides:
+    SUPERSET_ENV: production
+    superset_config.py: |
+      ROW_LIMIT = 5000
+      FEATURE_FLAGS = {
+          "ALERT_REPORTS": True,
+          "DASHBOARD_NATIVE_FILTERS": True,
+      }
+      
+
+  init:
+    adminUser:
+      username: admin
+      firstname: OvertureMaps
+      lastname: Admin
+      email: raslett@contractor.linuxfoundation.org
+      password: admin5140
+
+    
