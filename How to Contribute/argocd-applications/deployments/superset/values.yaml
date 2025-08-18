@@ -8,13 +8,13 @@ ingress:
   enabled: true
   ingressClassName: nginx
   hosts:
-    - host: superset.example.com
+    - host: superset.applications.overturemaps.org
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - hosts:
-        - superset.example.com
+        - superset.applications.overturemaps.org
       secretName: superset-tls
 
 configOverrides:
