@@ -39,7 +39,8 @@ superset:
     uv pip install .[athena] && \
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
       
-
+  envFromSecret: superset-env-secret
+  
   init:
     adminUser:
       username: admin
