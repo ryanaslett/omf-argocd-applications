@@ -40,11 +40,10 @@ superset:
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
       
   extraSecretEnv:
-    - name: SUPERSET_SECRET_KEY
-      valueFrom:
-        secretKeyRef:
-          name: superset-env-secret        # <-- the Secret’s metadata.name
-          key: SUPERSET_SECRET_KEY
+    SUPERSET_SECRET_KEY:
+      secretKeyRef:
+        name: superset-env-secret
+        key: SUPERSET_SECRET_KEY
 
   init:
     adminUser:
