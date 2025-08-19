@@ -40,7 +40,6 @@ superset:
      .[athena] \
      authlib \
      psycopg2-binary \
-     mysqlclient \
      && \
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
       
