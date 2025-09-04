@@ -1,6 +1,6 @@
 apiVersion: v2
 name: superset-shim
-description: A wrapper chart to deploy Apache Superset from Bitnami
+description: A wrapper chart to deploy Apache Superset from Apache
 type: application
 version: 0.1.0
 appVersion: "0.10.0"

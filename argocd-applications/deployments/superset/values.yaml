@@ -10,7 +10,7 @@ superset:
   # Use the custom ServiceAccount with IRSA annotations
   serviceAccount:
     create: false
-    name: superset
+  serviceAccountName: superset
 
   service:
     type: ClusterIP
