@@ -1,5 +1,17 @@
 # deployments/superset/values.yaml
+
+# ServiceAccount configuration for IRSA
+serviceAccount:
+  # ARN of the IAM role to be assumed by the ServiceAccount
+  # This should be created in your Terraform configuration
+  roleArn: "arn:aws:iam::816069134238:role/omf-superset-athena"  # e.g., arn:aws:iam::123456789012:role/superset-athena-role
+
 superset:
+  # Use the custom ServiceAccount with IRSA annotations
+  serviceAccount:
+    create: false
+    name: superset
+
   service:
     type: ClusterIP
     port: 80
@@ -33,7 +45,7 @@ superset:
           "ALERT_REPORTS": True,
           "DASHBOARD_NATIVE_FILTERS": True,
       }
-  
+
   bootstrapScript: |
     #!/bin/bash
     uv pip install \
@@ -42,7 +54,7 @@ superset:
      psycopg2-binary \
      && \
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
-      
+
   extraSecretEnv:
     SUPERSET_SECRET_KEY:
       secretKeyRef:
