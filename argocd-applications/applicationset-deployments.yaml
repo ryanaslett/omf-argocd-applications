@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/ryanaslett/omf-argocd-applications.git
+        repoURL: https://github.com/OvertureMaps/omf-superset-argocd.git
         revision: main
         directories:
           - path: argocd-applications/deployments/*
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/ryanaslett/omf-argocd-applications.git
+        repoURL: https://github.com/OvertureMaps/omf-superset-argocd.git
         targetRevision: main
         path: '{{path}}'
         helm:
