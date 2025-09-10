@@ -6,6 +6,7 @@ metadata:
 spec:
   generators:
     - git:
+        #TODO: rename this to omf-argocd.git
         repoURL: https://github.com/OvertureMaps/omf-superset-argocd.git
         revision: main
         directories:
@@ -16,6 +17,7 @@ spec:
     spec:
       project: default
       source:
+        #TODO: rename this to omf-argocd.git
         repoURL: https://github.com/OvertureMaps/omf-superset-argocd.git
         targetRevision: main
         path: '{{path}}'
