@@ -1,51 +1,14 @@
-# Project Title
+# ArgoCD App of Apps repository.
 
-Simple overview of use/purpose.
+ArgoCD in the OMF cluster gets its application definitions from this repository.
+The app of apps is defined in the main terraform repository: https://github.com/OvertureMaps/omf-superset-opentofu/omf-argocd.tf 
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+This is using an ArgoCD ApplicationSet which automatically creates applications based on
+the existance of a folder for the app under the deployments directory.
 
-## Getting Started
-
-### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+To create a new application to deploy to the omf eks cluster, add a folder under deployments with the application name and add
+the pertinent yaml/charts etc, and ArgoCD will deploy what is contained therein.
 
 
